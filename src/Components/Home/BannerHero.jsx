@@ -35,7 +35,7 @@ const BannerHero = () => {
         className="mySwiper h-full"
       >
         {
-          slider.map((item, index) => <SwiperSlide className='bg-white h-full pt-12'>
+          slider.map((item, index) => <SwiperSlide key={index} className='bg-white h-full pt-12'>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4 max-w-7xl mx-auto px-4 md:px-6 lg:px-8'>
               <div className="flex flex-col justify-center items-start">
                 <h3 className='text-primary font-bold text-sm md:text-base'>Best Product</h3>

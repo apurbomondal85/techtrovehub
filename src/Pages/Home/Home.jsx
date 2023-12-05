@@ -1,8 +1,8 @@
 
-import BannerHero from '../../Components/BannerHero'
-import FeaturedProducts from '../../Components/FeaturedProducts'
-import OfferProducts from '../../Components/OfferProducts'
-import ProductCategory from '../../Components/ProductCategory'
+import BannerHero from '../../Components/Home/BannerHero'
+import FeaturedProducts from '../../Components/Home/FeaturedProducts'
+import OfferProducts from '../../Components/Home/OfferProducts'
+import ProductCategory from '../../Components/Home/ProductCategory'
 
 const Home = () => {
     return (
