@@ -36,10 +36,6 @@ const NavBar = () => {
         <button onClick={() => setToggleBar(!toggleBar)} type="button" className="text-xl text-primary md:hidden focus:outline-none">
           <FaBars />
         </button>
-        <form className="hidden md:flex items-center bg-white w-[300px] pr-2 rounded-md">
-          <input type="search" name="search" className='w-full py-2 focus:outline-none pl-2 rounded-md' />
-          <button type='submit'><FaMagnifyingGlass /></button>
-        </form>
         <div className={`w-full ${toggleBar ? "block" : "hidden"} md:block md:w-auto`}>
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row gap-4 lg:gap-6 md:mt-0 md:bg-transparent">
             {
