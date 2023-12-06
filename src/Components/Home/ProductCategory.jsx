@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom';
 
 const ProductCategory = () => {
     const category = getAllCategory();
+    
+    const page = window.innerWidth;
 
     return (
         <div className='mt-12 lg:mt-16'>
@@ -17,7 +19,7 @@ const ProductCategory = () => {
                 <h1 className='text-2xl md:text-3xl lg:text-4xl text-center font-bold text-dark'>Product Category</h1>
                 <div className="py-12 lg:pt-16">
                     <Swiper
-                        slidesPerView={6}
+                        slidesPerView={576 > page ? 3 : 992 > page ? 4 : 1200 > page ? 5 : 6}
                         spaceBetween={30}
                         pagination={{
                             dynamicBullets: true,
@@ -31,7 +33,7 @@ const ProductCategory = () => {
                         {
                             category?.map(item => <SwiperSlide key={item._id}>
                                 <div className='w-20 h-20 p-4 border border-primary rounded-full mx-auto'>
-                                    <Link><img src={item.image} className='w-full h-full' alt="category image" /></Link>
+                                    <Link to={`/offer-product?category=${item.category}`}><img src={item.image} className='w-full h-full' alt="category image" /></Link>
                                 </div>
                             </SwiperSlide>)
                         }

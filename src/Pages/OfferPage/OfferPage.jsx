@@ -3,10 +3,14 @@ import CategorySidebar from "../../Components/CategoryProduct/CategorySidebar"
 import ProductSection from "../../Components/CategoryProduct/ProductSection"
 import SearchBanner from "../../Components/CategoryProduct/SearchBanner"
 import useAxiosSecure from "../../utiliz/useAxiosSecure";
+import { useLocation } from "react-router-dom";
 
 const OfferPage = () => {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const category = queryParams.get('category');
   const axiosSecure = useAxiosSecure();
-  const [handleTabCategory, setHandleTabCategory] = useState("Laptop");
+  const [handleTabCategory, setHandleTabCategory] = useState(category ? category :"Laptop");
   const [products, setProducts] = useState();
   const [searchValue, setSearchValue] = useState();
 
