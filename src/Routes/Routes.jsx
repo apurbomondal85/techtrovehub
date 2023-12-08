@@ -9,6 +9,7 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import Home from "../Pages/Home/Home";
 import OfferPage from "../Pages/OfferPage/OfferPage";
 import Category from "../Pages/Category/Category";
+import ProductDetails from "../Components/Home/ProductDetails";
 
 export const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
             {
                 path: '/category',
                 element: <Category />
+            },
+            {
+                path: '/product/:id',
+                element: <ProductDetails />
             },
         ]
     },
