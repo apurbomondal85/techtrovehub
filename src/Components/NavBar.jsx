@@ -1,13 +1,14 @@
 import { Link, NavLink } from 'react-router-dom'
 import logo from '../assets/Logo.png'
-import { FaBars, FaEnvelope, FaHouse, FaList, FaMagnifyingGlass, FaTag, } from 'react-icons/fa6'
+import { FaBars, FaHouse, FaList, FaTag, } from 'react-icons/fa6'
+import { BiSolidDashboard } from "react-icons/bi";
 import getProvider from '../utiliz/getProvider'
 import { useState } from 'react'
 
 const NavBar = () => {
   const { user, logOut } = getProvider();
   const [toggleBar, setToggleBar] = useState(false);
-
+  const role = "user"
   const navLink = [
     {
       title: "Home",
@@ -47,7 +48,14 @@ const NavBar = () => {
               )
             }
             {
-              user ? <li onClick={() => logOut()} className='text-secondary md:text-gray-300 text-xl md:text-base cursor-pointer transition-all duration-300 hover:text-primary py-2 px-4 md:px-0 md:py-0 bg-white md:bg-transparent rounded-md md:rounded-none text-center'>LogOut</li> : <NavLink to="/login" className='text-secondary md:text-gray-300 text-xl md:text-base transition-all duration-300 hover:text-primary py-2 px-4 md:px-0 md:py-0 bg-white md:bg-transparent rounded-md md:rounded-none text-center'>Login</NavLink>
+              user ?
+                <>
+                  <NavLink to={`/dashboard${role == 'user' ? '/carts' : role == 'seller' ? '/add-product' : '/user-manage'}`} className="text-secondary md:text-gray-300 text-xl md:text-base transition-all duration-300 hover:text-primary py-2 px-4 md:px-0 md:py-0 bg-white md:bg-transparent rounded-md md:rounded-none flex md:block items-center gap-4">
+                    <span className='md:hidden'><BiSolidDashboard /></span>
+                    <span>Dashboard</span>
+                  </NavLink>
+                  <li onClick={() => logOut()} className='text-secondary md:text-gray-300 text-xl md:text-base cursor-pointer transition-all duration-300 hover:text-primary py-2 px-4 md:px-0 md:py-0 bg-white md:bg-transparent rounded-md md:rounded-none text-center'>LogOut</li>
+                </> : <NavLink to="/login" className='text-secondary md:text-gray-300 text-xl md:text-base transition-all duration-300 hover:text-primary py-2 px-4 md:px-0 md:py-0 bg-white md:bg-transparent rounded-md md:rounded-none text-center'>Login</NavLink>
             }
           </ul>
         </div>

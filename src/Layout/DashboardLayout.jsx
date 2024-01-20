@@ -1,10 +1,14 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import DashboardSidebar from '../Components/Dashboard/DashboardSidebar'
 
 const DashboardLayout = () => {
   return (
     <div>
-      <Outlet />
+      <DashboardSidebar />
+      <div className="p-4 sm:ml-64">
+        <Outlet />
+      </div>
     </div>
   )
 }

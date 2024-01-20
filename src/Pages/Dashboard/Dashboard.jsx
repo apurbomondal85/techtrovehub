@@ -1,8 +1,11 @@
 import React from 'react'
+import UserCarts from './UserDashboard/UserCarts'
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <div>
+      <UserCarts />
+    </div>
   )
 }
 

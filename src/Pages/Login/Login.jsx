@@ -4,6 +4,7 @@ import getProvider from '../../utiliz/getProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { FaAt, FaGoogle, FaLock } from 'react-icons/fa6';
+import usePostUser from '../../utiliz/usePostUser';
 
 const Login = () => {
   const { login, google } = getProvider();
@@ -38,7 +39,9 @@ const Login = () => {
 
   const loginWithGoogle = () => {
     google()
-      .then(() => {
+      .then((result) => {
+        const user = result.user;
+        usePostUser(user)
         navigate(from)
       }).catch((error) => {
         const errorMessage = error.message;

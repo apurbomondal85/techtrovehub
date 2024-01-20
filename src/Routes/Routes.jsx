@@ -5,11 +5,11 @@ import ErrorPage from "../Pages/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import Login from "../Pages/Login/Login";
 import SingUp from "../Pages/Singup/SingUp";
-import Dashboard from "../Pages/Dashboard/Dashboard";
 import Home from "../Pages/Home/Home";
 import OfferPage from "../Pages/OfferPage/OfferPage";
 import Category from "../Pages/Category/Category";
 import ProductDetails from "../Components/Home/ProductDetails";
+import UserCarts from "../Pages/Dashboard/UserDashboard/UserCarts";
 
 export const router = createBrowserRouter([
     {
@@ -41,8 +41,8 @@ export const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
             {
-                path: "/dashboard",
-                element: <Dashboard />
+                path: "/dashboard/carts",
+                element: <UserCarts />
             }
         ]
     },

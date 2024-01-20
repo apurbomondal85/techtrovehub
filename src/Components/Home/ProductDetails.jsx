@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom"
 import useAxiosSecure from "../../utiliz/useAxiosSecure";
+import { useDispatch } from "react-redux";
+import { addCart } from "../../redux/features/cart/cartSlice";
 
 const ProductDetails = () => {
   const axiosSecure = useAxiosSecure()
   const { id } = useParams();
   const [product, setProduct] = useState();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (id) {
@@ -29,7 +32,7 @@ const ProductDetails = () => {
             <p className="text-gray-700 text-base sm:text-xl">{product?.rom || product?.switchType || product?.driverSize || product?.resolution || product?.dpi}</p>
           </div>
           {product?.discount > 0 && <p className="py-1 px-2 bg-dark text-white rounded-md inline-block">{product?.discount}% OFF</p>}
-          <Link className="block"><button className="font-semibold text-white py-2 px-4 rounded-md bg-primary">Add To Cart</button></Link>
+          <button onClick={() => dispatch(addCart())} className="font-semibold block text-white py-2 px-4 rounded-md bg-primary">Add To Cart</button>
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { FaAt, FaGoogle, FaLock, FaUser } from "react-icons/fa6";
 import getProvider from "../../utiliz/getProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import usePostUser from "../../utiliz/usePostUser";
 
 const SingUp = () => {
   const { createUser, updateUser, google } = getProvider();
@@ -30,6 +31,7 @@ const SingUp = () => {
           updateUser(currentUser, name)
             .then(() => {
               reset();
+              usePostUser(currentUser)
               navigate(from)
             })
         })
@@ -44,6 +46,8 @@ const SingUp = () => {
   const loginWithGoogle = () => {
     google()
       .then((result) => {
+        const user = result.user;
+        usePostUser(user)
         navigate(from)
       }).catch((error) => {
         const errorMessage = error.message;
